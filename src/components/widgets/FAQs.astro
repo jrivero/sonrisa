@@ -1,0 +1,68 @@
+---
+import { Icon } from 'astro-icon';
+
+const items = [
+	[
+		{
+			question: '¿La terapia online es efectiva?',
+			answer: `Realizamos asesoramiento psicológico. Está demostrado que la terapia online es efectiva si el usuario tiene voluntad de cambio. Es imprescindible querer solucionar el problema y hacer caso a las sugerencias del terapeuta. `,
+		},
+		{
+			question: '¿Es anónimo?',
+			answer: `Completamente. No conocemos ningún dato personal, todo quedará entre el terapeuta y tú. Únicamente utilizaremos el email por motivos de seguridad o para la comunicación de avisos y novedades. `,
+		},
+		{
+			question: "¿Puedo elegir el psicólogo con el que realizaré mi sesión?",
+			answer: `Sí. Siempre puedes elegir con qué profesional deseas iniciar tu sesión de ayuda psicológica entre todos los que estén conectados y puedes ver su información, fotografía y nombre. También puedes verlos en la sección “Nuestros psicólogos”.
+
+    Asegúrate  de disponer de 25 minutos para realizar la sesión y empieza cuando  quieras; al instante o con cita previa. Y si en algún momento del día no encuentras a ningún psicólogo es que pueden estar ocupados realizando otras sesiones, pero te avisaremos en cuanto uno de ellos esté disponible.`,
+		},
+	],
+	[
+		{
+			question: "¿Que tipo de problemas y patologías tratáis?",
+			answer: `Tenemos un gran número de profesionales y podemos ayudarte en cualquiera que sea tu problema. Por ejemplo: problemas de pareja, ansiedad, estrés, desarrollo personal, depresión, entre otros. Además, también puedes realizar terapia a largo plazo con un mismo psicólogo, contactando por chat fuera de sesión y acordando las horas de las próximas sesiones.`,
+		},
+		{
+			question: '¿Cómo puedo empezar una sesión?',
+			answer: `Por ahora estamos disponibles a través de nuestra web, pronto podrás descargar la aplicación para Android y iOS`,
+		},
+		{
+			question: '¿Cómo se realiza el pago',
+			answer: `El pago deberá ser realizado a través de Bizum`,
+		},
+	],
+];
+---
+
+<div class="px-4 py-16 mx-auto max-w-6xl lg:py-20" id="faq">
+	<div class="max-w-xl sm:mx-auto lg:max-w-2xl">
+		<div class="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
+			<h2 class="max-w-lg mb-4 text-3xl font-bold leading-none tracking-tight sm:text-4xl md:mx-auto font-heading">
+				Preguntas frecuentes
+			</h2>
+			<p>Aquí encontrarás respuestas a las preguntas más frecuentes</p>
+		</div>
+	</div>
+	<div class="max-w-screen-xl sm:mx-auto">
+		<div class="grid grid-cols-1 gap-x-8 gap-y-8 lg:gap-x-16 md:grid-cols-2">
+			{
+				items.map((subitems) => (
+					<div class="space-y-8">
+						{subitems.map(({ question, answer }) => (
+							<div>
+								<p class="mb-4 text-xl font-bold">
+									<Icon name="tabler:arrow-down-right" class="w-7 h-7 text-primary-500 inline-block icon-bold" />
+									{question}
+								</p>
+								{answer.split('\n\n').map((paragraph) => (
+									<p class="text-gray-700 dark:text-gray-400 mb-2" set:html={paragraph} />
+								))}
+							</div>
+						))}
+					</div>
+				))
+			}
+		</div>
+	</div>
+</div>

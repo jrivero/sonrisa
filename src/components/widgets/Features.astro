@@ -1,0 +1,54 @@
+---
+import { Icon } from 'astro-icon';
+
+const items = [
+	{
+		title: 'Psicólogos colegiados',
+		description:
+			'Llevamos a cabo una rigurosa selección de psicólogos colegiados y con experiencia.',
+		icon: 'flat-color-icons:home',
+	},
+	{
+		title: 'Seguro y privado',
+		description:
+			'Comunicación encriptada y perfil anónimo para que puedas tratar cualquier tema sin miedo a exponer tu identidad o el contenido de tus conversaciones.',
+		icon: 'flat-color-icons:faq',
+	},
+	{
+		title: 'Terapia online al instante',
+		description:
+			'Contacta siempre que lo necesites, por chat o videollamada, las 24 horas del día y todos los días del año.',
+		icon: 'flat-color-icons:voice-presentation',
+	},
+];
+---
+
+<section class="relative" id="que-es-sonrisa">
+	<div class="absolute inset-0 bg-primary-50 dark:bg-slate-800 pointer-events-none mb-32" aria-hidden="true"></div>
+	<div class="relative max-w-6xl mx-auto px-4 sm:px-6">
+		<div class="py-4 pt-8 sm:py-6 lg:py-8 lg:pt-12">
+			<div class="mb-8 text-center">
+				<h2 class="text-4xl md:text-5xl font-bold leading-tighter tracking-tighter mb-4 font-heading">
+					¿Qué es Sonrisa?
+				</h2>
+				<p class="max-w-3xl mx-auto text-center text-xl text-gray-600 dark:text-slate-400">
+					Sonrisa es un servicio de atención psicológica online que brinda el soporte y el acompañamiento profesional necesario para afrontar de manera más positiva y eficaz los retos del día a día.
+				</p>
+			</div>
+			<div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3 items-start my-12 dark:text-white">
+				{
+					items.map(({ title, description, icon }) => (
+						<div class="relative flex flex-col p-6 bg-white dark:bg-slate-900 rounded shadow-xl hover:shadow-lg transition dark:border dark:border-slate-800">
+							<div class="flex items-center mb-4">
+								<Icon name={icon} class="w-12 h-12" />
+
+								<div class="ml-4 text-xl font-bold">{title}</div>
+							</div>
+							<p class="text-gray-500 dark:text-gray-400 text-md">{description}</p>
+						</div>
+					))
+				}
+			</div>
+		</div>
+	</div>
+</section>
